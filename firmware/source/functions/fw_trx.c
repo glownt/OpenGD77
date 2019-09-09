@@ -508,6 +508,12 @@ int trxGetDMRColourCode()
 	return currentCC;
 }
 
+int trxGetDMRSlot()
+{
+	return ((currentChannelData->flag2 & 0x40) >> 6) + 1;
+}
+
+
 void trxSetTxCTCSS(int toneFreqX10)
 {
 	if (toneFreqX10 == 0xFFFF)

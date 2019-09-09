@@ -347,8 +347,15 @@ void menuUtilityRenderHeader()
 			break;
 		case RADIO_MODE_DIGITAL:
 			strcpy(buffer, "DMR");
+
+			if(trxGetDMRSlot() == 1)
+				strcat(buffer, " S1");
+			else
+				strcat(buffer, " S2");
 			break;
 	}
+
+
 
 	UC1701_printAt(0,8, buffer,UC1701_FONT_6X8);
 	int  batteryPerentage = (int)(((battery_voltage - CUTOFF_VOLTAGE_UPPER_HYST) * 100) / (BATTERY_MAX_VOLTAGE - CUTOFF_VOLTAGE_UPPER_HYST));
